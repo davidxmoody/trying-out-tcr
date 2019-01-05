@@ -41,9 +41,13 @@ function test(target: number, nums: number[]): boolean {
     return nums[0] === target
   }
 
-  const [a, b, rest] = perms(nums)[0]
+  for (const [a, b, rest] of perms(nums)) {
+    if (operators.some(op => test(target, [op(a, b), ...rest]))) {
+      return true
+    }
+  }
 
-  return operators.some(op => test(target, [op(a, b), ...rest]))
+  return false
 }
 
 export default test
