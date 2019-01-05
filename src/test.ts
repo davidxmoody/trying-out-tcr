@@ -23,6 +23,7 @@ const testCases: Array<[number, number[], boolean]> = [
 
   // Multiplication
   [6, [2, 3], true],
+  [6, [2, 99, 3], true],
 ]
 
 describe("Countdown game", () => {
