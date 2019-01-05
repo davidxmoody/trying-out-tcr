@@ -32,7 +32,7 @@ function perms(nums: number[]): Array<[number, number, number[]]> {
   return p
 }
 
-function test(target: number, nums: number[]): boolean {
+export function booleanTest(target: number, nums: number[]): boolean {
   if (nums.length === 0) {
     throw new Error("No nums left, should never reach this point")
   }
@@ -42,12 +42,10 @@ function test(target: number, nums: number[]): boolean {
   }
 
   for (const [a, b, rest] of perms(nums)) {
-    if (operators.some(op => test(target, [op(a, b), ...rest]))) {
+    if (operators.some(op => booleanTest(target, [op(a, b), ...rest]))) {
       return true
     }
   }
 
   return false
 }
-
-export default test

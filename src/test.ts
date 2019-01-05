@@ -1,7 +1,7 @@
 import {expect} from "chai"
-import fun from "./index"
+import {booleanTest} from "./index"
 
-const testCases: Array<[number, number[], boolean]> = [
+const booleanTestCases: Array<[number, number[], boolean]> = [
   // Base case
   [1, [1], true],
   [1, [2], false],
@@ -38,9 +38,9 @@ const testCases: Array<[number, number[], boolean]> = [
 ]
 
 describe("Countdown game", () => {
-  for (const testCase of testCases) {
+  for (const testCase of booleanTestCases) {
     it(JSON.stringify(testCase), () => {
-      expect(fun(testCase[0], testCase[1])).to.eql(testCase[2])
+      expect(booleanTest(testCase[0], testCase[1])).to.eql(testCase[2])
     })
   }
 })
