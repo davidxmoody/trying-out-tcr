@@ -18,7 +18,7 @@ const testCases: Array<[number, number[], boolean]> = [
   [5, [9, 4], true],
   [5, [9, 4, 1], true],
   [5, [9, 3, 1], true],
-  [5, [9, 2, 1], false],
+  [5, [9, 1, 1], false],
   [100, [50, 1, 25, 30, 4], true],
 
   // Multiplication
