@@ -58,14 +58,14 @@ export interface MathInstruction {
   operator: Operator
 }
 
-export function stringifyMath(m: number | MathInstruction, depth: number = 0): string {
+export function stringifyMath(m: number | MathInstruction, prevOperator: Operator | undefined = undefined): string {
   if (typeof m === "number") {
     return `${m}`
   }
 
-  const withoutBrackets = `${stringifyMath(m.a, depth + 1)} ${m.operator} ${stringifyMath(m.b, depth + 1)}`
+  const withoutBrackets = `${stringifyMath(m.a, m.operator)} ${m.operator} ${stringifyMath(m.b, m.operator)}`
 
-  if (depth === 0 || m.operator === "+" || m.operator === "-") {
+  if (!prevOperator) {
     return withoutBrackets
   }
 
