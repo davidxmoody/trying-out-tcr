@@ -32,6 +32,7 @@ const testCases: Array<[number, number[], boolean]> = [
   [3, [642, 2, 99, 6, 6666], true],
 
   // Complex
+  [5, [9, 2, 1], true],
   // [106, [25, 4, 6666, 1111], true]
 ]
 
