@@ -1,5 +1,5 @@
 import {expect} from "chai"
-import {booleanTest} from "./index"
+import {booleanTest, stringifyMath} from "./index"
 
 const booleanTestCases: Array<[number, number[], boolean]> = [
   // Base case
@@ -37,10 +37,16 @@ const booleanTestCases: Array<[number, number[], boolean]> = [
   [106, [25, 4, 6666, 1115], false],
 ]
 
-describe("Countdown game", () => {
+describe("Countdown game boolean tests", () => {
   for (const testCase of booleanTestCases) {
     it(JSON.stringify(testCase), () => {
       expect(booleanTest(testCase[0], testCase[1])).to.eql(testCase[2])
     })
   }
+})
+
+describe("Stringify math", () => {
+  it("returns a number", () => {
+    expect(stringifyMath(1)).to.eql("1")
+  })
 })

@@ -49,3 +49,19 @@ export function booleanTest(target: number, nums: number[]): boolean {
 
   return false
 }
+
+export type Operator = "+" | "-" | "*" | "/"
+
+export interface MathInstruction {
+  a: number | MathInstruction
+  b: number | MathInstruction
+  operator: Operator
+}
+
+export function stringifyMath(m: number | MathInstruction): string {
+  if (typeof m === "number") {
+    return `${m}`
+  }
+
+  return `(${stringifyMath(m.a)} ${m.operator} ${stringifyMath(m.b)})`
+}
