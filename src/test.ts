@@ -30,6 +30,9 @@ const testCases: Array<[number, number[], boolean]> = [
   [3, [6, 2], true],
   [3, [2, 6], true],
   [3, [642, 2, 99, 6, 6666], true],
+
+  // Complex
+  // [106, [25, 4, 6666, 1111], true]
 ]
 
 describe("Countdown game", () => {
