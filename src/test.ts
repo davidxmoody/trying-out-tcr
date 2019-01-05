@@ -28,6 +28,7 @@ const testCases: Array<[number, number[], boolean]> = [
 
   // Division
   [3, [6, 2], true],
+  [3, [2, 6], true],
 ]
 
 describe("Countdown game", () => {
