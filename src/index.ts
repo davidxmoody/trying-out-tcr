@@ -20,16 +20,7 @@ function test(target: number, nums: number[]): boolean {
 
   const [a, b, ...rest] = nums
 
-  return (
-    test(target, [operators[0](a, b), ...rest]) ||
-    test(target, [operators[1](a, b), ...rest]) ||
-    test(target, [operators[2](a, b), ...rest]) ||
-    test(target, [operators[3](a, b), ...rest]) ||
-    test(target, [operators[4](a, b), ...rest]) ||
-    test(target, [operators[5](a, b), ...rest]) ||
-    test(target, [operators[6](a, b), ...rest]) ||
-    test(target, [operators[7](a, b), ...rest])
-  )
+  return operators.some(op => test(target, [op(a, b), ...rest]))
 }
 
 export default test
