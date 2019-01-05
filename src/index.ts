@@ -18,9 +18,13 @@ function test(target: number, nums: number[]): boolean {
     return nums[0] === target
   }
 
-  const [a, b, ...rest] = nums
+  const i = 0
+  const j = 1
+  const numsClone = [...nums]
+  const b = numsClone.splice(j, 1)[0]
+  const a = numsClone.splice(i, 1)[0]
 
-  return operators.some(op => test(target, [op(a, b), ...rest]))
+  return operators.some(op => test(target, [op(a, b), ...numsClone]))
 }
 
 export default test
