@@ -58,12 +58,16 @@ export interface MathInstruction {
   operator: Operator
 }
 
-export function stringifyMath(m: number | MathInstruction): string {
+export function stringifyMath(m: number | MathInstruction, depth: number = 0): string {
   if (typeof m === "number") {
     return `${m}`
   }
 
-  const withoutBrackets = `${stringifyMath(m.a)} ${m.operator} ${stringifyMath(m.b)}`
+  const withoutBrackets = `${stringifyMath(m.a, depth + 1)} ${m.operator} ${stringifyMath(m.b, depth + 1)}`
 
-  return m.operator === "*" || m.operator === "/" ? `(${withoutBrackets})` : withoutBrackets
+  if (depth === 0 || m.operator === "+" || m.operator === "-") {
+    return withoutBrackets
+  }
+
+  return `(${withoutBrackets})`
 }
