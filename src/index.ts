@@ -14,7 +14,8 @@ function test(target: number, nums: number[]): boolean {
     test(target, [second, ...rest]) ||
     test(target, [first, ...rest]) ||
     test(target, [first - second, ...rest]) ||
-    test(target, [second - first, ...rest])
+    test(target, [second - first, ...rest]) ||
+    test(target, [second * first, ...rest])
   )
 }
 
