@@ -7,7 +7,7 @@ const testCases: Array<[number, number[], boolean]> = [
   [3, [1, 2], true],
 ]
 
-describe("test", () => {
+describe("Countdown game", () => {
   for (const testCase of testCases) {
     it(JSON.stringify(testCase), () => {
       expect(fun(testCase[0], testCase[1])).to.eql(testCase[2])

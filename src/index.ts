@@ -1,15 +1,14 @@
-export default (target: number, nums: number[]) => {
-  if (nums.includes(target)) {
-    return true
+function test(target: number, nums: number[]): boolean {
+  if (nums.length === 0) {
+    throw new Error("No nums left, should never reach this point")
   }
 
-  if (sum(nums) === target) {
-    return true
+  if (nums.length === 1) {
+    return nums[0] === target
   }
 
-  return false
+  const [first, second, ...rest] = nums
+  return test(target, [first + second, ...rest])
 }
 
-function sum(nums: number[]): number {
-  return nums.reduce((xs, x) => xs + x, 0)
-}
+export default test
