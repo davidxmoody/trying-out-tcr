@@ -49,4 +49,8 @@ describe("Stringify math", () => {
   it("returns a number", () => {
     expect(stringifyMath(1)).to.eql("1")
   })
+
+  it("returns a simple addition", () => {
+    expect(stringifyMath({a: 1, b: 2, operator: "+"})).to.eql("1 + 2")
+  })
 })

@@ -63,5 +63,7 @@ export function stringifyMath(m: number | MathInstruction): string {
     return `${m}`
   }
 
-  return `(${stringifyMath(m.a)} ${m.operator} ${stringifyMath(m.b)})`
+  const withoutBrackets = `${stringifyMath(m.a)} ${m.operator} ${stringifyMath(m.b)}`
+
+  return m.operator === "*" || m.operator === "/" ? `(${withoutBrackets})` : withoutBrackets
 }
