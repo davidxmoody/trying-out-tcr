@@ -8,7 +8,11 @@ function test(target: number, nums: number[]): boolean {
   }
 
   const [first, second, ...rest] = nums
-  return test(target, [first + second, ...rest])
+
+  return (
+    test(target, [first + second, ...rest]) ||
+    test(target, [second, ...rest])
+  )
 }
 
 export default test
