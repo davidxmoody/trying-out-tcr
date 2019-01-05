@@ -20,6 +20,18 @@ function extract(nums: number[], i: number, j: number): [number, number, number[
   return [a, b, clone]
 }
 
+function perms(nums: number[]): Array<[number, number, number[]]> {
+  const p: Array<[number, number, number[]]> = []
+
+  for (let i = 0; i < nums.length - 1; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      p.push(extract(nums, i, j))
+    }
+  }
+
+  return p
+}
+
 function test(target: number, nums: number[]): boolean {
   if (nums.length === 0) {
     throw new Error("No nums left, should never reach this point")
@@ -29,7 +41,7 @@ function test(target: number, nums: number[]): boolean {
     return nums[0] === target
   }
 
-  const [a, b, rest] = extract(nums, 0, 1)
+  const [a, b, rest] = perms(nums)[0]
 
   return operators.some(op => test(target, [op(a, b), ...rest]))
 }
