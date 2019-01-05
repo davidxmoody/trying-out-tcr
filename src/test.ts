@@ -11,6 +11,7 @@ const testCases: Array<[number, number[], boolean]> = [
   [3, [2, 9], false],
   [5, [4, 9], true],
   [5, [9, 4], true],
+  [5, [9, 4, 1], true],
 ]
 
 describe("Countdown game", () => {
