@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "tcr": "npm run test && echo pass || echo fail",
+    "tcr": "npm run test && npm run commit || npm run revert",
+    "commit": "git add . && git commit -m TCR && echo Committed",
+    "revert": "git checkout -- src/index.ts && echo Reverted index",
     "test": "mocha --opts mocha.opts"
   },
   "dependencies": {
